@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lastname: 'Doe',
       email: 'john.doe@example.com',
       phone: '+1234567890',
+      favorite: true,
     },
 
     {
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lastname: 'Smith',
       email: 'jane.smith@example.com',
       phone: '+1987654321',
+      favorite: true,
     },
 
     {
@@ -21,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lastname: 'Johnson',
       email: 'michael.johnson@example.com',
       phone: '+1122334455',
+      favorite: false,
     },
 
     {
@@ -28,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lastname: 'Brown',
       email: 'emily.brown@example.com',
       phone: '+1555666777',
+      favorite: true,
     },
 
     {
@@ -35,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lastname: 'Martinez',
       email: 'david.martinez@example.com',
       phone: '+1444333222',
+      favorite: false,
     },
 
     {
@@ -42,11 +47,12 @@ document.addEventListener('DOMContentLoaded', () => {
       lastname: 'Taylor',
       email: 'sophia.taylor@example.com',
       phone: '+1777888999',
+      favorite: false,
     },
   ];
 
   for (const contact of contacts) {
-    let { name, lastname, email, phone } = contact;
+    let { name, lastname, email, phone, favorite } = contact;
 
     contactsContainer.innerHTML += `
     
@@ -62,6 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       <span class="font-black text-lg mt-3 overflow-hidden break-word">Phone</span>
       <span class="overflow-hidden break-all">${phone}</span>
+
+      <span class="font-black text-lg mt-3 overflow-hidden break-word">Favorite</span>
+      <span class="overflow-hidden break-all">${favorite}</span>
     </div>
     `;
   }
