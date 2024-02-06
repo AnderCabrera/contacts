@@ -4,18 +4,58 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../output.css" />
-    <script src="../../js/view/contacts.view.js" defer></script>
+    <script src="../../js/view/contacts.view.js" type="module" defer></script>
     <title>Contacts</title>
   </head>
   <body class="bg-[#0F0F0F]">
-    <nav class="nav bg-[#005B41] flex max-[380px]:flex-col lg:flex-row mb-4 text-gray-100">
-      <a href="" class="flex justify-center border border-black w-full p-5 hover:bg-[rgba(0,0,0,0.2)] overflow-hidden break-words">Todo</a>
-      <a href="" class="flex justify-center border border-black w-full p-5 hover:bg-[rgba(0,0,0,0.2)] overflow-hidden break-words">Favorites</a>
-      <a href="" class="flex justify-center border border-black w-full p-5 hover:bg-[rgba(0,0,0,0.2)] overflow-hidden break-words">Add</a>
-      <a href="" class="flex justify-center border border-black w-full p-5 hover:bg-[rgba(0,0,0,0.2)] overflow-hidden break-words">Profile</a>
+    <nav
+      class="nav bg-[#005B41] flex max-[380px]:flex-col lg:flex-row mb-4 text-gray-100"
+    >
+      <a
+        href=""
+        class="flex justify-center border border-black w-full p-5 hover:bg-[rgba(0,0,0,0.2)] overflow-hidden break-words"
+        >Todo</a
+      >
+      <a
+        href=""
+        class="flex justify-center border border-black w-full p-5 hover:bg-[rgba(0,0,0,0.2)] overflow-hidden break-words"
+        >Add</a
+      >
+      <a
+        href=""
+        class="flex justify-center border border-black w-full p-5 hover:bg-[rgba(0,0,0,0.2)] overflow-hidden break-words"
+        >Profile</a
+      >
     </nav>
 
     <div class="main-container">
+      <div class="m-2">
+
+        <div class="mb-3">
+          <label
+            class="text-white overflow-hidden break-words"
+            for="search-input"
+            >Search</label
+          >
+          <input
+            type="text"
+            id="search-input"
+            class="w-full p-2 bg-[#1E1E1E] text-white"
+            placeholder="Search..."
+            value="asd"
+          />
+        </div>
+        
+        <div class="">
+          <label
+            class="text-white overflow-hidden break-words"
+            for="favorites-filter"
+            >Favorites</label
+          >
+          <input type="checkbox" id="favorites-filter" />
+        </div>
+        
+      </div>
       <div class="contacts flex flex-col">
         <div
           class="group grid max-[335px]:grid-cols-1 max-lg:grid-cols-2 lg:grid-cols-3 m-2 gap-4"

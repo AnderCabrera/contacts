@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./output.css" />
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="w-screen h-screen bg-white flex justify-center items-center">
+      <div class="login-container w-full h-full flex flex-col">
+        <form
+          action="./pages/contacts/contacts.html"
+          class="form h-full flex flex-col justify-center items-center"
+        >
+          <h1 class="text-black text-center text-4xl p-6">Login</h1>
+          <div class="field-1 flex flex-col max-lg:w-[100%] lg:w-[25%] p-3">
+            <label for="email">Email</label>
+            <input
+              class="border border-black rounded p-[0.2rem] mt-1"
+              placeholder="Email@example.com"
+              type="email"
+              id="email"
+              required
+            />
+          </div>
+
+          <div class="field-2 flex flex-col max-lg:w-[100%] lg:w-[25%] p-3">
+            <label for="password">Password</label>
+            <input
+              class="border border-black rounded p-[0.2rem] mt-1"
+              placeholder="Password"
+              type="password"
+              id="password"
+              required
+            />
+          </div>
+
+          <div
+            class="button max-lg:w-[100%] lg:w-[25%] flex justify-center mt-4"
+          >
+            <button
+              type="submit"
+              class="border border-gray-800 rounded w-1/3 p-1.5"
+            >
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
