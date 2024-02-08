@@ -3,11 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
     <link rel="stylesheet" href="../../output.css" />
-    <script src="../../js/view/contacts.view.js" type="module" defer></script>
+    <script src="../../js/contacts/contacts.js" type="module" defer></script>
     <title>Contacts</title>
   </head>
-  <body class="bg-[#0F0F0F]">
+  <body>
     <nav
       class="nav bg-[#005B41] flex max-[380px]:flex-col lg:flex-row mb-4 text-gray-100"
     >
@@ -28,40 +32,130 @@
       >
     </nav>
 
-    <div class="main-container">
-      <div class="m-2">
+    <div class="contacts">
+      <table class="w-[90%] m-0 m-auto">
+        <thead>
+          <tr class="bg-gray-200">
+            <th scope="col" class="py-4"><span>Name</span></th>
+            <th scope="col" class="py-4"><span>Lastname</span></th>
+            <th scope="col" class="py-4"><span>Phone</span></th>
+            <th scope="col" class="py-4"><span>Email</span></th>
+            <th scope="col" class="py-4"><span>Favorite</span></th>
+            <th scope="col" class="py-4"><span>Actions</span></th>
+          </tr>
+        </thead>
+        <tbody
+          id="contacts-table"
+          class="text-center [&>*:nth-child(odd)]:bg-slate-100"
+        ></tbody>
+      </table>
+    </div>
 
-        <div class="mb-3">
-          <label
-            class="text-white overflow-hidden break-words"
-            for="search-input"
-            >Search</label
+    <div
+      id="update-modal"
+      tabindex="-1"
+      aria-hidden="true"
+      class="fixed flex justify-center items-center top-0 z-50 w-full h-full p-4 bg-black/85 hidden"
+    >
+      <div class="relative flex justify-center max-h-full w-full max-w-2xl">
+        <!-- Modal content -->
+        <div class="relative rounded-lg bg-white shadow dark:bg-gray-700 w-[80%]">
+          <!-- Modal header -->
+          <div
+            class="flex items-start justify-between rounded-t border-b p-5 dark:border-gray-600"
           >
-          <input
-            type="text"
-            id="search-input"
-            class="w-full p-2 bg-[#1E1E1E] text-white"
-            placeholder="Search..."
-            value="asd"
-          />
-        </div>
-        
-        <div class="">
-          <label
-            class="text-white overflow-hidden break-words"
-            for="favorites-filter"
-            >Favorites</label
+            <h3
+              class="text-xl font-semibold text-gray-900 dark:text-white lg:text-2xl"
+            >
+              Terms of Service
+            </h3>
+            <button
+              type="button"
+              class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
+            >
+              <svg
+                class="h-3 w-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 14"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                />
+              </svg>
+              <span class="sr-only">Close modal</span>
+            </button>
+          </div>
+          <!-- Modal body -->
+          <div class="space-y-6 p-6">
+            <div class="">
+              <label for="">Name</label>
+              <input
+                type="text"
+                class="w-full p-2 border border-gray-200 rounded-lg dark:border-gray-600"
+                id="update-name"
+              />
+            </div>
+            <div class="">
+              <label for="">Lastname</label>
+              <input
+                type="text"
+                class="w-full p-2 border border-gray-200 rounded-lg dark:border-gray-600"
+                id="update-lastname"
+              />
+            </div>
+
+            <div class="">
+              <label for="">Phone</label>
+              <input
+                type="text"
+                class="w-full p-2 border border-gray-200 rounded-lg dark:border-gray-600"
+                id="update-phone"
+              />
+            </div>
+
+            <div class="">
+              <label for="">Email</label>
+              <input
+                type="text"
+                class="w-full p-2 border border-gray-200 rounded-lg dark:border-gray-600"
+                id="update-email"
+              />
+            </div>
+
+            <div class="flex">
+              <label for="">Favorite</label>
+              <input
+                type="checkbox"
+                class="ml-2"
+                id="update-favorite"
+              />
+            </div>
+          </div>
+          <!-- Modal footer -->
+          <div
+            class="flex items-center space-x-2 rtl:space-x-reverse rounded-b border-t border-gray-200 p-6 dark:border-gray-600"
           >
-          <input type="checkbox" id="favorites-filter" />
-        </div>
-        
-      </div>
-      <div class="contacts flex flex-col">
-        <div
-          class="group grid max-[335px]:grid-cols-1 max-lg:grid-cols-2 lg:grid-cols-3 m-2 gap-4"
-          id="contacts-group"
-        >
-          <!-- js content generated -->
+            <button
+              type="button"
+              class="rounded-lg bg-green-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+              id="update-contact"
+            >
+              Accept
+            </button>
+            <button
+              type="button"
+              class="rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-900 focus:z-10 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:border-gray-500 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+              id="cancel-update"
+            >
+              Cancel
+            </button>
+          </div>
         </div>
       </div>
     </div>
