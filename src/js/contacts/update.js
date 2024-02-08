@@ -7,6 +7,7 @@ import {
   favoriteModal,
   continueModal,
   cancelModal,
+  xCloseModal
 } from './constants.js';
 
 import { contacts, save, findIndexContact } from './contacts.js';
@@ -49,6 +50,10 @@ export function showModal(contact) {
   };
 
   cancelModal.onclick = () => {
+    updateModal.classList.add('hidden');
+  };
+
+  xCloseModal.onclick = () => {
     updateModal.classList.add('hidden');
   };
 }
