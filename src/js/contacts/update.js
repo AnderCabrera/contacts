@@ -7,10 +7,14 @@ import {
   favoriteModal,
   continueModal,
   cancelModal,
-  xCloseModal
+  xCloseModal,
 } from './constants.js';
 
 import { contacts, save, findIndexContact } from './contacts.js';
+
+export function isEmpty(str) {
+  return !str.trim().length;
+}
 
 export function updateContact(contact) {
   let index = findIndexContact(contact.id);
@@ -36,7 +40,15 @@ export function showModal(contact) {
   updateModal.classList.remove('hidden');
 
   continueModal.onclick = () => {
-    updateContact(contact);
+    if (
+      isEmpty(nameModal.value) ||
+      isEmpty(lastnameModal.value) ||
+      isEmpty(phoneModal.value) ||
+      isEmpty(emailModal.value)
+    ) {
+      alert('All fields are required');
+      return;
+    } else updateContact(contact);
 
     let contactRow = document.getElementById(contact.id);
 
