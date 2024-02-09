@@ -1,6 +1,7 @@
-import { contactsTable } from './constants.js';
+import { contactsTable, addContactModal } from './constants.js';
 
 import { showModal } from './update.js';
+import { showModal as showAddModal } from './add.js';
 import { CONTACTS } from '../local-storage-constants.js';
 
 export let contacts = JSON.parse(localStorage.getItem(CONTACTS));
@@ -57,80 +58,83 @@ if (!contacts || contacts.length < 1) {
     },
   ];
 
-  renderContacts(contacts);
-} else renderContacts(contacts);
+  renderContacts();
+} else renderContacts();
 
-
-
-export function renderContacts(contacts) {
+export function renderContacts() {
   for (const contact of contacts) {
-    let { id, name, lastname, email, phone, favorite } = contact;
-
-    const tr = document.createElement('tr');
-
-    tr.id = id;
-
-    tr.innerHTML = `
-      <td class="border border-white"><span class="p-2">${name}</span></td>
-      <td class="border border-white"><span class="p-2">${lastname}</span></td>
-      <td class="border border-white"><span class="p-2">${phone}</span></td>
-      <td class="border border-white"><span class="p-2">${email}</span></td>
-
-      <td class="border border-white p-2">
-        <input type="checkbox" ${
-          favorite ? 'checked' : ''
-        } onclick="return false;" />
-      </td>
-
-    `;
-
-    // buttons container
-    let buttonsContainer = document.createElement('td');
-    buttonsContainer.classList.add(
-      'border',
-      'border-white',
-      'p-2',
-      'buttonsContainer',
-    );
-
-    // update button
-    let updateBtn = document.createElement('button');
-    updateBtn.classList.add(
-      'bg-sky-600',
-      'text-white',
-      'px-3',
-      'py-2',
-      'rounded-md',
-      'mr-1',
-      'update-button',
-    );
-    updateBtn.innerHTML = '<i class="fas fa-edit"></i>';
-    updateBtn.onclick = () => {
-      showModal(contact);
-    };
-
-    // delete button
-    let deleteBtn = document.createElement('button');
-    deleteBtn.classList.add(
-      'bg-red-600',
-      'text-white',
-      'px-3',
-      'py-2',
-      'rounded-md',
-      'delete-button',
-    );
-    deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
-    deleteBtn.onclick = () => {
-      deleteContact(id);
-    };
-
-    buttonsContainer.appendChild(updateBtn);
-    buttonsContainer.appendChild(deleteBtn);
-
-    tr.appendChild(buttonsContainer);
-
-    contactsTable.appendChild(tr);
+    addContactView(contact);
   }
+}
+
+export function addContactView(contact) {
+  let { id, name, lastname, email, phone, favorite } = contact;
+
+  const tr = document.createElement('tr');
+
+  tr.id = id;
+
+  tr.innerHTML = `
+    <td class="border border-gray-600"><span class="p-2">${name}</span></td>
+    <td class="border border-gray-600"><span class="p-2">${lastname}</span></td>
+    <td class="border border-gray-600"><span class="p-2">${phone}</span></td>
+    <td class="border border-gray-600"><span class="p-2">${email}</span></td>
+
+    <td class="border border-gray-600 p-2">
+      <input type="checkbox" ${favorite ? 'checked' : ''} onclick="return false;" />
+    </td>
+
+  `;
+
+  // buttons container
+  let buttonsContainer = document.createElement('td');
+  buttonsContainer.classList.add(
+    'border',
+    'border-gray-600',
+    'p-2',
+    'buttonsContainer',
+    'flex',
+    'justify-center',
+    'w-full'
+  );
+
+  // update button
+  let updateBtn = document.createElement('button');
+  updateBtn.classList.add(
+    'bg-sky-600',
+    'text-white',
+    'px-3',
+    'py-2',
+    'rounded-md',
+    'mr-1',
+    'update-button',
+  );
+  updateBtn.innerHTML = '<i class="fas fa-edit"></i>';
+  updateBtn.onclick = () => {
+    showModal(contact);
+  };
+
+  // delete button
+  let deleteBtn = document.createElement('button');
+  deleteBtn.classList.add(
+    'bg-red-600',
+    'text-white',
+    'px-3',
+    'py-2',
+    'rounded-md',
+    'delete-button',
+  );
+  deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
+  deleteBtn.onclick = () => {
+    deleteContact(id);
+  };
+
+  buttonsContainer.appendChild(updateBtn);
+  buttonsContainer.appendChild(deleteBtn);
+
+  tr.appendChild(buttonsContainer);
+
+  contactsTable.appendChild(tr);
 }
 
 export function save(contacts) {
@@ -150,3 +154,6 @@ function deleteContact(id) {
   document.getElementById(id).remove();
 }
 
+addContactModal.onclick = (e) => {
+  showAddModal();
+};

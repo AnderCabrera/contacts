@@ -2,6 +2,9 @@ export const contactsTable = document.getElementById('contacts-table');
 
 // export let contacts = JSON.parse(localStorage.getItem('contacts'));
 
+// navbar
+export const addContactModal = document.getElementById('add-contact-modal');
+
 // modal update form
 export const updateModal = document.getElementById('update-modal');
 export const nameModal = document.getElementById('update-name');

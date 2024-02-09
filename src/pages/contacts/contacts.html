@@ -20,11 +20,7 @@
         class="flex justify-center border border-black w-full p-5 hover:bg-[rgba(0,0,0,0.2)] overflow-hidden break-words"
         >Todo</a
       >
-      <a
-        href=""
-        class="flex justify-center border border-black w-full p-5 hover:bg-[rgba(0,0,0,0.2)] overflow-hidden break-words"
-        >Add</a
-      >
+
       <a
         href=""
         class="flex justify-center border border-black w-full p-5 hover:bg-[rgba(0,0,0,0.2)] overflow-hidden break-words"
@@ -32,21 +28,30 @@
       >
     </nav>
 
-    <div class="contacts">
-      <table class="w-[90%] m-0 m-auto">
+    <div class="w-full flex justify-center">
+      <button
+        class="bg-green-600 text-white w-[90%] p-4 rounded-lg mb-4 overflow-hidden break-words hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-300 hover:bg-green-800 focus:ring-green-800"
+        type="button"
+        id="add-contact-modal"
+      >
+        Add contact
+      </button>
+    </div>
+    <div class="contacts flex flex-col overflow-x-auto w-[90%] m-0 m-auto">
+      <table class="w-full m-0 m-auto mb-10">
         <thead>
-          <tr class="bg-gray-200">
-            <th scope="col" class="py-4"><span>Name</span></th>
-            <th scope="col" class="py-4"><span>Lastname</span></th>
-            <th scope="col" class="py-4"><span>Phone</span></th>
-            <th scope="col" class="py-4"><span>Email</span></th>
-            <th scope="col" class="py-4"><span>Favorite</span></th>
-            <th scope="col" class="py-4"><span>Actions</span></th>
+          <tr class="bg-gray-300">
+            <th scope="col" class="py-4 border border-black "><span>Name</span></th>
+            <th scope="col" class="py-4 border border-black "><span>Lastname</span></th>
+            <th scope="col" class="py-4 border border-black "><span>Phone</span></th>
+            <th scope="col" class="py-4 border border-black "><span>Email</span></th>
+            <th scope="col" class="py-4 px-3 border border-black "><span>Favorite</span></th>
+            <th scope="col" class="py-4 border border-black "><span>Actions</span></th>
           </tr>
         </thead>
         <tbody
           id="contacts-table"
-          class="text-center [&>*:nth-child(odd)]:bg-slate-100"
+          class="text-center [&>*:nth-child(odd)]:bg-slate-200"
         ></tbody>
       </table>
     </div>
@@ -65,9 +70,7 @@
           <div
             class="flex items-start justify-between rounded-t border-b p-5 border-gray-600"
           >
-            <h3
-              class="text-xl font-semibold text-white lg:text-2xl"
-            >
+            <h3 class="text-xl font-semibold text-white lg:text-2xl">
               Update contact
             </h3>
             <button
@@ -99,7 +102,7 @@
               <label for="update-name" class="text-white">Name</label>
               <input
                 type="text"
-                class="w-full p-2 border  rounded-lg border-gray-600"
+                class="w-full p-2 border rounded-lg border-gray-600"
                 id="update-name"
               />
             </div>
@@ -107,7 +110,7 @@
               <label for="update-lastname" class="text-white">Lastname</label>
               <input
                 type="text"
-                class="w-full p-2 border  rounded-lg border-gray-600"
+                class="w-full p-2 border rounded-lg border-gray-600"
                 id="update-lastname"
               />
             </div>
@@ -116,7 +119,7 @@
               <label for="update-phone" class="text-white">Phone</label>
               <input
                 type="text"
-                class="w-full p-2 border  rounded-lg border-gray-600"
+                class="w-full p-2 border rounded-lg border-gray-600"
                 id="update-phone"
               />
             </div>
@@ -125,23 +128,19 @@
               <label for="update-email" class="text-white">Email</label>
               <input
                 type="email"
-                class="w-full p-2 border  rounded-lg border-gray-600"
+                class="w-full p-2 border rounded-lg border-gray-600"
                 id="update-email"
               />
             </div>
 
             <div class="flex">
               <label for="update-favorite" class="text-white">Favorite</label>
-              <input
-                type="checkbox"
-                class="ml-2"
-                id="update-favorite"
-              />
+              <input type="checkbox" class="ml-2" id="update-favorite" />
             </div>
           </div>
           <!-- Modal footer -->
           <div
-            class="flex items-center space-x-2 rtl:space-x-reverse rounded-b border-t  p-6 border-gray-600"
+            class="flex items-center space-x-2 rtl:space-x-reverse rounded-b border-t p-6 border-gray-600"
           >
             <button
               type="button"
@@ -152,7 +151,7 @@
             </button>
             <button
               type="button"
-              class="rounded-lg border border-gray-200 px-5 py-2.5 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-900 focus:z-10 focus:outline-none focus:ring-4 focus:ring-blue-300 border-gray-500 bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white"
+              class="rounded-lg border border-gray-200 px-5 py-2.5 text-sm font-medium text-white hover:bg-gray-100 hover:text-gray-900 focus:z-10 focus:outline-none focus:ring-4 focus:ring-blue-300 border-gray-500 bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white"
               id="cancel-update"
             >
               Cancel
@@ -176,9 +175,7 @@
           <div
             class="flex items-start justify-between rounded-t border-b p-5 border-gray-600"
           >
-            <h3
-              class="text-xl font-semibold text-white lg:text-2xl"
-            >
+            <h3 class="text-xl font-semibold text-white lg:text-2xl">
               Add contact
             </h3>
             <button
@@ -243,11 +240,7 @@
 
             <div class="flex">
               <label for="add-favorite" class="text-white">Favorite</label>
-              <input
-                type="checkbox"
-                class="ml-2"
-                id="add-favorite"
-              />
+              <input type="checkbox" class="ml-2" id="add-favorite" />
             </div>
           </div>
           <!-- Modal footer -->
@@ -263,7 +256,7 @@
             </button>
             <button
               type="button"
-              class="rounded-lg border border-gray-200 px-5 py-2.5 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-900 focus:z-10 focus:outline-none focus:ring-4 focus:ring-blue-300 border-gray-500 bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white"
+              class="rounded-lg border px-5 py-2.5 text-sm font-medium text-white hover:bg-gray-100 hover:text-gray-900 focus:z-10 focus:outline-none focus:ring-4 focus:ring-blue-300 border-gray-500 bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white"
               id="cancel-add"
             >
               Cancel
