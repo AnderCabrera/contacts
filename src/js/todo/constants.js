@@ -1,0 +1,1 @@
+export const todosTable = document.getElementById('todos');

@@ -81,9 +81,10 @@ export function addContactView(contact) {
     <td class="border border-gray-600"><span class="p-2">${email}</span></td>
 
     <td class="border border-gray-600 p-2">
-      <input type="checkbox" ${favorite ? 'checked' : ''} onclick="return false;" />
+      <input type="checkbox" ${
+        favorite ? 'checked' : ''
+      } onclick="return false;" />
     </td>
-
   `;
 
   // buttons container
@@ -95,7 +96,7 @@ export function addContactView(contact) {
     'buttonsContainer',
     'flex',
     'justify-center',
-    'w-full'
+    'w-full',
   );
 
   // update button
