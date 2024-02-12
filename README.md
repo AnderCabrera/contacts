@@ -4,10 +4,8 @@
 npm i
 ```
 ```bash
-npm run styles
+npm run start
 ```
-
-then only open the index.html
 
 **Javascript aspects**
 
