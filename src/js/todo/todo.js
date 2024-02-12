@@ -2,9 +2,9 @@ import { TODO } from '../local-storage-constants.js';
 
 import { todosTable, addTodoButton } from './constants.js';
 
+import { addTodo } from './add.js';
+import { showEditModal } from './update.js';
 import { deleteTodo } from './delete.js';
-
-import { addTodo as addTodoToTable } from './add.js';
 
 export let todos = JSON.parse(localStorage.getItem(TODO));
 
@@ -97,7 +97,6 @@ export function addTodoObject(todo) {
   );
 
   tr.children[2].children[0].onchange = () => {
-    console.log('checkbox clicked');
     let index = findTodoIndex(id);
     todos[index].completed = !todos[index].completed;
     save(todos);
@@ -105,8 +104,7 @@ export function addTodoObject(todo) {
 
   updateBtn.innerHTML = '<i class="fas fa-edit"></i>';
   updateBtn.onclick = () => {
-    console.log('update button clicked');
-    // showModal(todo);
+    showEditModal(todo);
   };
 
   // delete button
@@ -139,5 +137,5 @@ export function findTodoIndex(id) {
 }
 
 addTodoButton.onclick = () => {
-  addTodoToTable();
+  addTodo();
 }
