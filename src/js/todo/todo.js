@@ -1,8 +1,10 @@
 import { TODO } from '../local-storage-constants.js';
 
-import { todosTable } from './constants.js';
+import { todosTable, addTodoButton } from './constants.js';
 
 import { deleteTodo } from './delete.js';
+
+import { addTodo as addTodoToTable } from './add.js';
 
 export let todos = JSON.parse(localStorage.getItem(TODO));
 
@@ -46,11 +48,11 @@ export function save(todos) {
 
 export function renderTodos() {
   for (const todo of todos) {
-    addTodo(todo);
+    addTodoObject(todo);
   }
 }
 
-export function addTodo(todo) {
+export function addTodoObject(todo) {
   let { id, title, description, completed, importance } = todo;
 
   const tr = document.createElement('tr');
@@ -127,4 +129,8 @@ export function addTodo(todo) {
 
 export function findTodoIndex(id) {
   return todos.findIndex((todo) => todo.id === id);
+}
+
+addTodoButton.onclick = () => {
+  addTodoToTable();
 }
