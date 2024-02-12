@@ -142,5 +142,5 @@ addTodoButton.onclick = () => {
 }
 
 onCick((filters) => {
-  const filteredTodos = filter(filters);
+  filter(filters);
 });

@@ -30,7 +30,7 @@
     </nav>
 
     <form
-      class="flex flex-row justify-end items-center p-2 gap-1 bg-blue-400"
+      class="flex flex-row max-[657px]:flex-col justify-end items-center gap-1 bg-gray-200 w-full py-2"
       id="filters"
     >
       <label class="font-weight-bold text-info mr-3">Filters</label>
@@ -44,24 +44,26 @@
       <input type="radio" name="type" value="uncompleted" class="mx-1" />
       <label for="other" class="mr-2 mb-0">Uncompleted</label>
 
-      <input
-        type="search"
-        name="words"
-        placeholder="Words"
-        aria-label="Search"
-        class="border-none bg-gray-200 p-1"
-      />
-      <button class="bg-gray-600 text-white p-1" type="submit" id="search">
-        Search
-      </button>
+      <div class="flex flex-row max-[284px]:flex-col max-[284px]:w-[90%] w-fit">
+        <input
+          type="search"
+          name="words"
+          placeholder="Words"
+          aria-label="Search"
+          class="border border-gray-500 bg-gray-200 p-1"
+        />
+        <button class="bg-gray-600 text-white p-1" type="submit" id="search">
+          Search
+        </button>
+      </div>
     </form>
 
-    <div class="bg-red-400">
+    <div class="">
       <form
-        class="flex flex-row justify-center items-center w-full h-full p-5 gap-4 bg-violet-600"
+        class="flex flex-col justify-center items-center w-full h-full p-5 gap-4 bg-gray-200"
         id="todo-form"
       >
-        <div class="">
+        <div class="flex flex-col">
           <label for="title" class="">Title</label>
           <input
             type="text"
@@ -72,7 +74,7 @@
           />
         </div>
 
-        <div class="">
+        <div class="flex flex-col">
           <label for="description" class="">Description</label>
           <input
             type="text"
@@ -83,7 +85,7 @@
           />
         </div>
 
-        <div class="">
+        <div class="flex flex-col">
           <label for="importance">Important</label>
           <input
             type="number"
@@ -105,15 +107,15 @@
       </form>
     </div>
 
-    <div class="table-container w-[90%] m-auto overflow-x-auto">
+    <div class="table-container mt-10 w-[90%] m-auto overflow-x-auto">
       <table class="table-auto w-full m-0 m-auto mb-10">
         <thead>
           <tr>
-            <th class="py-4 border border-black">Title</th>
-            <th class="py-4 border border-black">Description</th>
-            <th class="py-4 border border-black">Completed</th>
-            <th class="py-4 border border-black">Importance</th>
-            <th class="py-4 border border-black">Actions</th>
+            <th class="p-4 border border-black">Title</th>
+            <th class="p-4 border border-black">Description</th>
+            <th class="p-4 border border-black">Completed</th>
+            <th class="p-4 border border-black">Importance</th>
+            <th class="p-4 border border-black">Actions</th>
           </tr>
         </thead>
         <tbody
@@ -173,7 +175,9 @@
               />
             </div>
             <div class="">
-              <label for="update-description" class="text-white">Description</label>
+              <label for="update-description" class="text-white"
+                >Description</label
+              >
               <input
                 type="text"
                 class="w-full p-2 border rounded-lg border-gray-600"
@@ -182,7 +186,9 @@
             </div>
 
             <div class="">
-              <label for="update-importance" class="text-white">Importance</label>
+              <label for="update-importance" class="text-white"
+                >Importance</label
+              >
               <input
                 type="number"
                 min="1"
