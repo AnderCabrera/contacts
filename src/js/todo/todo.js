@@ -96,6 +96,13 @@ export function addTodoObject(todo) {
     'update-button',
   );
 
+  tr.children[2].children[0].onchange = () => {
+    console.log('checkbox clicked');
+    let index = findTodoIndex(id);
+    todos[index].completed = !todos[index].completed;
+    save(todos);
+  }
+
   updateBtn.innerHTML = '<i class="fas fa-edit"></i>';
   updateBtn.onclick = () => {
     console.log('update button clicked');
