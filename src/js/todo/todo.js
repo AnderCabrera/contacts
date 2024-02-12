@@ -5,6 +5,7 @@ import { todosTable, addTodoButton } from './constants.js';
 import { addTodo } from './add.js';
 import { showEditModal } from './update.js';
 import { deleteTodo } from './delete.js';
+import { onCick, filter } from './filters.js';
 
 export let todos = JSON.parse(localStorage.getItem(TODO));
 
@@ -139,3 +140,7 @@ export function findTodoIndex(id) {
 addTodoButton.onclick = () => {
   addTodo();
 }
+
+onCick((filters) => {
+  const filteredTodos = filter(filters);
+});

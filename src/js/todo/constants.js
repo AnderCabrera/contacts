@@ -16,3 +16,7 @@ export const editCompletedInput = document.getElementById('update-completed');
 export const editTodoButton = document.getElementById('update-contact');
 export const cancelEditButton = document.getElementById('cancel-update');
 export const xButton = document.getElementById('x-close-modal');
+
+// Filter todos constants
+export const form = document.getElementById('filters');
+export const filterButton = document.getElementById('search');
